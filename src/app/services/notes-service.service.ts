@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class NotesServiceService {
 
-  private notesEndpoint: string = "http://localhost:9090/notes"
+  private notesEndpoint: string = "http://localhost:9091/notes"
 
   constructor(
     private http: HttpClient
@@ -16,5 +16,9 @@ export class NotesServiceService {
 
   getNotes(): Observable<NoteResponse[]> {
     return this.http.get<NoteResponse[]>(this.notesEndpoint);
+  }
+
+  getNote(id: number): Observable<NoteResponse> {
+    return this.http.get<NoteResponse>(this.notesEndpoint.concat(`/${id}`));
   }
 }

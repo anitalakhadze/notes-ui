@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
 import {NoteResponse} from "../interfaces";
 import {HttpClient} from "@angular/common/http";
 import {NotesServiceService} from "../services/notes-service.service";
@@ -12,6 +11,7 @@ import {NotesServiceService} from "../services/notes-service.service";
 export class NotesComponent implements OnInit {
 
   notes: NoteResponse[] = [];
+  selectedNote?: NoteResponse;
 
   constructor(
     private http: HttpClient,
@@ -19,14 +19,18 @@ export class NotesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getNotes();
   }
 
-  getHeroes() {
+  getNotes() {
     this.notesService.getNotes()
       .subscribe(notes => {
-        this.notes = notes as NoteResponse[]
+        this.notes = notes
       });
+  }
+
+  onSelect(note: NoteResponse): void {
+    this.selectedNote = note;
   }
 
 }

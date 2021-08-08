@@ -1,6 +1,13 @@
-<div *ngFor="let note of notes">
-  <h1>{{note.subject}}</h1>
-  <h2>{{note.text}}</h2>
-  <h3>{{note.authorUsername}}</h3>
-  <h4>{{note.createdAt}}</h4>
+<div class="row">
+  <div *ngFor="let note of notes" class="col-4"
+       (click)="onSelect(note)"
+       routerLink="/notes/{{note.id}}">
+    <h1>{{note.subject}}</h1>
+    <h3>{{note.authorUsername}}</h3>
+<!--    <h4>{{note.createdAt}}</h4>-->
+  </div>
 </div>
+
+<app-note-detail [note]="selectedNote"></app-note-detail>
+
+

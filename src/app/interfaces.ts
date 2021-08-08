@@ -5,10 +5,6 @@ export interface NoteRequest {
   createdAt: string
 }
 
-export interface AuthorRequest {
-  username: string
-}
-
 export interface NoteResponse {
   id: number,
   subject: string,
@@ -17,7 +13,11 @@ export interface NoteResponse {
   createdAt: string
 }
 
-export interface AuthorRespones {
+export interface AuthorRequest {
+  username: string
+}
+
+export interface AuthorResponse {
   id: number,
   username: string
 }
