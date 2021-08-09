@@ -1,0 +1,11 @@
+<div *ngIf="note">
+
+  <h2>{{note.subject | uppercase}} Details</h2>
+  <div><span>id: </span>{{note.id}}</div>
+  <div>
+    <h1>{{note.subject}}</h1>
+    <h2>{{note.text}}</h2>
+    <h3>{{note.authorUsername}}</h3>
+  </div>
+
+</div>
